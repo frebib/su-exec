@@ -33,6 +33,18 @@ $ su-exec --env id
 uid=123 gid=456 groups=456
 ```
 
+## Installation
+
+To compile and install run
+
+```shell
+make
+make install
+```
+
+which will install under `/usr/local`. To install somewhere else you can use the
+`PREFIX` variable, like `make install PREFIX=$HOME/software`.
+
 ## TTY & parent/child handling
 
 Notice how `su` will make `ps` be a child of a shell while `su-exec`
