@@ -1,0 +1,15 @@
+workspace:
+  path: spritsail/su-exec
+
+pipeline:
+  build:
+    image: spritsail/abuild:edge
+    privileged: true
+    secrets: [ signingkey, sshkey ]
+    publickey: https://alpine.spritsail.io/spritsail-alpine.rsa.pub
+    repo_sshfs: 'drone-upload@spritsail.io:'
+
+  notify:
+    image: spritsail/notify
+    when: { status: [ success, failure ] }
+    secrets: [ webhook_url, notify_token ]
