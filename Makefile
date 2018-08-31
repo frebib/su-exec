@@ -1,5 +1,5 @@
-
-CFLAGS ?= -Wall -Werror -Iinclude
+CFLAGS ?= -Wall -Werror
+CFLAGS += -Iinclude
 LDFLAGS ?=
 
 PROG := su-exec
@@ -17,20 +17,16 @@ license.inc: LICENSE
 
 $(PROG): $(SRCS) $(INCS)
 	$(CC) $(CFLAGS) -o $@ $(SRCS) $(LDFLAGS)
-	strip $@
 
 $(PROG)-static: $(SRCS) $(INCS)
 	$(CC) $(CFLAGS) -o $@ $(SRCS) -static $(LDFLAGS)
-	strip $@
 
 $(PROG)-debug: $(SRCS) $(INCS)
 	$(CC) -g $(CFLAGS) -o $@ $(SRCS) $(LDFLAGS)
 
 install:
-	install -d 0755 $(DESTDIR)$(INSTALL_DIR)
-	install -m 0755 $(PROG) $(DESTDIR)$(INSTALL_DIR)
-	install -d 0755 $(DESTDIR)$(MAN_DIR)
-	install -m 0644 su-exec.1 $(DESTDIR)$(MAN_DIR)
+	install -Dm755 $(PROG) $(DESTDIR)$(INSTALL_DIR)/$(PROG)
+	install -Dm644 $(PROG).1 $(DESTDIR)$(MAN_DIR)/$(PROG).1
 
 clean:
 	rm -f $(PROG) $(PROG)-static $(PROG)-debug $(INCS)
