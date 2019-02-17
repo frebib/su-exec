@@ -7,7 +7,7 @@ pipeline:
     privileged: true
     secrets: [ signingkey, sshkey ]
     publickey: https://alpine.spritsail.io/spritsail-alpine.rsa.pub
-    repo_sshfs: 'drone-upload@spritsail.io:'
+    repo_sshfs: 'drone-upload@web.spritsail.io:'
 
   notify:
     image: spritsail/notify
