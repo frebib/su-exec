@@ -1,7 +1,7 @@
 # Contributor: Natanael Copa <ncopa@alpinelinux.org>
 # Maintainer: frebib <su-exec@frebib.net>
 pkgname=su-exec
-pkgver=0.3
+pkgver=0.4
 pkgrel=0
 pkgdesc="switch user and group id, setgroups and exec"
 url="https://github.com/frebib/su-exec"
